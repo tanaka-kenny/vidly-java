@@ -1,0 +1,65 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001-CREATE CUSTOMER ENTITY" author="Tanaka">
+        <createTable tableName="CUSTOMER">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="uuid" type="VARCHAR(255)" />
+            <column name="is_gold" type="boolean"/>
+            <column name="name" type="VARCHAR(255)" />
+            <column name="phone" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="002-CREATE GENRE ENTITY" author="Tanaka">
+        <createTable tableName="genre">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="uuid" type="VARCHAR(255)" />
+            <column name="name" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="003-CREATE MOVIE ENTITY" author="Tanaka">
+        <createTable tableName="movie">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="uuid" type="VARCHAR(255)" />
+            <column name="title" type="VARCHAR(255)" />
+            <column name="number_in_stock" type="int" />
+            <column name="daily_rental_rate" type="int" />
+            <column name="genre_id" type="bigint" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="004-CREATE RENTAL ENTITY" author="Tanaka">
+        <createTable tableName="rental">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="uuid" type="VARCHAR(255)" />
+            <column name="date_out" type="date" />
+            <column name="date_returned" type="date" />
+            <column name="rental_fee" type="double" />
+            <column name="customer_id" type="bigint" />
+            <column name="movie_id" type="bigint" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="004-CREATE USER ENTITY" author="Tanaka">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="uuid" type="VARCHAR(255)" />
+            <column name="name" type="VARCHAR(255)" />
+            <column name="email" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
