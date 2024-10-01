@@ -62,4 +62,11 @@
             <column name="email" type="VARCHAR(255)" />
         </createTable>
     </changeSet>
+    <changeSet id="005-ADD password, created_at, updated_at columns to USER" author="Tanaka">
+        <addColumn tableName="user">
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="created_at" type="DATE"/>
+            <column name="updated_at" type="DATE"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
