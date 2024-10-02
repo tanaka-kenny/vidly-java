@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_detail")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String name;
 
-    @Column(unique = true, length = 100, nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)
